@@ -1,7 +1,7 @@
 :root {
   --orange-color: #da722c;
   --dark-blue-color: #023047;
-  --light-blue-color: #057ada;
+  --light-blue-color: #6f7dfb;
   --light-color: #023047;
   --dark-color: #070917;
 }
@@ -475,6 +475,12 @@ footer .copyright {
   margin-top: 36px;
 }
 
+nav.mobile-nav,
+.mobile-menu-container {
+  display: none;
+}
+
+/* ipad pro medium screen */
 @media (max-width: 1100px) {
   .btn {
     padding: 12px 32px;
@@ -613,5 +619,160 @@ footer .copyright {
   }
   footer .links-container .links:last-child {
     grid-column: 1/3;
+  }
+}
+
+/* ipad mini view */
+@media (max-width: 800px) {
+  /* hide desktop nav */
+  nav {
+    display: none;
+  }
+
+  nav.mobile-nav {
+    display: flex;
+  }
+  nav.mobile-nav.scrolled {
+    top: 0;
+    padding: 8px 100px;
+    background: var(--light-blue-color);
+    box-shadow: 0 9px 21px -5px rgba(0, 0, 0, 0.3);
+  }
+  .mobile-menu-container {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    right: 100%;
+    background: var(--dark-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    transition: all 400ms ease;
+  }
+
+  .mobile-menu-container.active {
+    right: 0;
+  }
+
+  .mobile-menu-container .close-icon {
+    position: fixed;
+    top: 32px;
+    right: 100px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 400ms ease;
+  }
+
+  .mobile-menu-container.active .close-icon {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-menu-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  .mobile-menu-container ul li {
+    margin: 30px 0;
+    text-align: center;
+  }
+  .mobile-menu-container ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+  }
+}
+
+/* mobile version */
+@media (max-width: 700px) {
+  .wrapper {
+    padding: 0 32px;
+  }
+
+  .hero-section .left p {
+    width: 100%;
+  }
+
+  .app-section .app-buttons {
+    flex-direction: column;
+  }
+  nav.mobile-nav {
+    padding: 32px;
+  }
+  nav.mobile-nav.scrolled {
+    padding: 8px 32px;
+  }
+  .mobile-menu-container .close-icon {
+    right: 32px;
+  }
+  .hero-section .left h1 {
+    font-size: 36px;
+  }
+  .hero-section .right img {
+    height: 400px;
+    transform: translateX(50px);
+  }
+  .hero-section .right {
+    overflow: hidden;
+    transform: translateX(25px);
+  }
+  .achievement-card h3 {
+    font-size: 30px;
+  }
+
+  .hero-section .achievement-card {
+    margin-bottom: 48px;
+  }
+  .hero-section .achievement-cards {
+    margin: 0;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  .testimonials-section .testimonial-card .info h4 {
+    font-size: 18px;
+  }
+  .testimonials-section .testimonial-card .info p.company {
+    font-size: 14px;
+  }
+  .testimonials-section .testimonial-card img {
+    height: 100px;
+    width: 100px;
+  }
+
+  /* courses section */
+  .courses-section .wrapper {
+    padding: 0;
+  }
+  .courses-section .course-card img {
+    height: 240px;
+  }
+
+  .courses-section .wrapper .btn {
+    right: 32px;
+  }
+
+  /* footer */
+  footer .links-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+  footer .links-container .links:last-child {
+    grid-column: 1/2;
+  }
+  footer ul {
+    padding: 0;
+  }
+  footer form .submit-btn {
+    top: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  footer .copyright {
+    margin-top: 80px;
+    text-align: center;
   }
 }

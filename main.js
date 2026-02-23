@@ -1,9 +1,22 @@
 const nav = document.querySelector("nav");
+const mobileNav = document.querySelector("nav.mobile-nav");
+const menuIcon = document.querySelector(".menu-icon");
+const closeIcon = document.querySelector(".mobile-menu-container .close-icon");
+const mobileMenuContainer = document.querySelector(".mobile-menu-container");
 
 window.addEventListener("scroll", function () {
   if (pageYOffset > 60) {
     nav.classList.add("scrolled");
+    mobileNav.classList.add("scrolled");
   } else {
     nav.classList.remove("scrolled");
+    mobileNav.classList.remove("scrolled");
   }
+});
+
+menuIcon.addEventListener("click", function () {
+  mobileMenuContainer.classList.add("active");
+});
+closeIcon.addEventListener("click", function () {
+  mobileMenuContainer.classList.remove("active");
 });
